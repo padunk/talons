@@ -9,7 +9,7 @@ export function Navigation() {
   return (
     <NavWrapper>
       <HamburgerWrapper>
-        <input
+        <ToggleNavMenu
           type='checkbox'
           name='hamburger-menu'
           id='hamburger-menu'
@@ -18,19 +18,26 @@ export function Navigation() {
         <Label htmlFor='hamburger-menu'>
           <HamburgerLine></HamburgerLine>
         </Label>
+        <NavMenuWrapper>
+          <div>
+            <form action='/search/' method='post'>
+              <NavSearch type='text' name='nav-search' id='nav-search' />
+            </form>
+          </div>
+          <NavMenuLists>
+            <NavMenuList>Developers</NavMenuList>
+            <NavMenuList>Projects</NavMenuList>
+            <NavMenuList>Meetups</NavMenuList>
+            <NavMenuList>Blogs</NavMenuList>
+            <NavMenuList>Hiring Developers</NavMenuList>
+          </NavMenuLists>
+        </NavMenuWrapper>
       </HamburgerWrapper>
       <LogoWrapper>
         <Logo src={logo} alt='talons.dev logo' />
       </LogoWrapper>
-      {/* <div className='nav-menu'></div>
-      <div className='search'></div> */}
       <ActionsWrapper>
-        <div className='menu' hidden>
-          Menu
-        </div>
-        <div className='search' hidden>
-          Search
-        </div>
+        {/** MENU component */}
         <LogWrapper>
           <LogActions display='none'>
             <Link to='/enter/register' hidden>
@@ -45,6 +52,45 @@ export function Navigation() {
     </NavWrapper>
   );
 }
+
+const NavMenuList = styled.li`
+  padding: 1rem 0;
+`;
+
+const NavMenuLists = styled.ul`
+  list-style-type: none;
+`;
+
+const NavSearch = styled.input`
+  padding: 8px 14px;
+  font-size: 1.6rem;
+  font-family: inherit;
+  border-radius: 2rem;
+  background: ${COLORS.grayLight};
+  border: none;
+  outline: none;
+
+  &:focus,
+  &:hover {
+    border: 1px solid ${COLORS.secondary};
+    box-shadow: 0 0 6px 2px ${COLORS.secondaryLightAlpha};
+  }
+`;
+
+const NavMenuWrapper = styled.div`
+  background: ${COLORS.white};
+  width: 100vw;
+  padding: 2rem;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  font-size: 1.8rem;
+  opacity: 0;
+  transform: translateY(-105%);
+  will-change: transform;
+  transition: transform 500ms ease-out, opacity 300ms;
+  pointer-events: none;
+`;
 
 const Login = styled(Link)`
   font-size: 1.8rem;
@@ -113,6 +159,7 @@ const HamburgerLine = styled.span`
     position: absolute;
     height: 2px;
     background: ${COLORS.white};
+    transition: width 300ms;
   }
 
   &::before {
@@ -135,6 +182,24 @@ const Label = styled(UnstyledLabel)`
   display: flex;
   align-items: center;
   cursor: pointer;
+`;
+
+const ToggleNavMenu = styled.input`
+  display: none;
+
+  &:checked ~ ${NavMenuWrapper} {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  &:checked ~ ${Label} > ${HamburgerLine}::before {
+    width: 30%;
+  }
+
+  &:checked ~ ${Label} > ${HamburgerLine}::after {
+    width: 90%;
+  }
 `;
 
 const HamburgerWrapper = styled.div`
