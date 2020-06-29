@@ -1,6 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
 import { COLORS } from "../../constants";
+import logo from "../../assets/icons/talons.svg";
+import { Link } from "react-router-dom";
+import { prependOnceListener } from "process";
 
 export function Navigation() {
   return (
@@ -16,31 +19,93 @@ export function Navigation() {
           <HamburgerLine></HamburgerLine>
         </Label>
       </HamburgerWrapper>
-      <div className='logo'>LOGO</div>
+      <LogoWrapper>
+        <Logo src={logo} alt='talons.dev logo' />
+      </LogoWrapper>
       {/* <div className='nav-menu'></div>
       <div className='search'></div> */}
       <ActionsWrapper>
-        <div className='menu'></div>
-        <div className='search'></div>
-        <div className='log'></div>
+        <div className='menu' hidden>
+          Menu
+        </div>
+        <div className='search' hidden>
+          Search
+        </div>
+        <LogWrapper>
+          <LogActions display='none'>
+            <Link to='/enter/register' hidden>
+              Register
+            </Link>
+          </LogActions>
+          <LogActions display='flex'>
+            <Login to='/enter/login'>Log in</Login>
+          </LogActions>
+        </LogWrapper>
       </ActionsWrapper>
     </NavWrapper>
   );
 }
 
+const Login = styled(Link)`
+  font-size: 1.8rem;
+  font-family: inherit;
+  text-decoration: none;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: ${COLORS.gray};
+  }
+`;
+
+const LogActions = styled.div<{ display: string }>`
+  display: ${(props) => props.display};
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`;
+
+const LogWrapper = styled.div`
+  height: 100%;
+  min-width: 6rem;
+  padding: 5px;
+`;
+
+const ActionsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-width: 6rem;
+  height: 100%;
+`;
+
+const UnstyledImg = (props: any) => <img {...props} alt={props.alt} />;
+
+const Logo = styled(UnstyledImg)`
+  width: 70%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+`;
+
+const LogoWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const UnstyledLabel = (props: any) => (
   <label {...props}>{props.children}</label>
 );
 
-const ActionsWrapper = styled.div`
-  display: flex;
-`;
-
 const HamburgerLine = styled.span`
-  width: 100%;
   height: 2px;
   background: ${COLORS.white};
-  width: 70%;
+  width: 60%;
 
   &::before,
   &::after {
@@ -51,13 +116,13 @@ const HamburgerLine = styled.span`
   }
 
   &::before {
-    top: 1rem;
-    width: 100%;
+    top: 1.2rem;
+    width: 90%;
   }
 
   &::after {
-    bottom: 1rem;
-    width: 40%;
+    bottom: 1.2rem;
+    width: 30%;
   }
 `;
 
@@ -69,10 +134,11 @@ const Label = styled(UnstyledLabel)`
   position: relative;
   display: flex;
   align-items: center;
+  cursor: pointer;
 `;
 
 const HamburgerWrapper = styled.div`
-  width: 6rem;
+  min-width: 6rem;
   height: 100%;
   padding: 5px;
   background: ${COLORS.black};
@@ -85,6 +151,5 @@ const NavWrapper = styled.nav`
   z-index: 999;
   display: flex;
   align-items: center;
-  background: beige;
-  border: 1px solid crimson;
+  background: ${COLORS.white};
 `;
