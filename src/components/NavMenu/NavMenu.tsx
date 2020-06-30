@@ -1,13 +1,12 @@
 import * as React from "react";
 import styled from "styled-components";
-import { COLORS, BREAKPOINTS, ROUTES } from "../../constants";
+import { COLORS, BREAKPOINTS, NAV_ROUTES } from "../../constants";
 import { Link } from "react-router-dom";
-import { stringify } from "querystring";
 
 export function NavMenu() {
   return (
     <React.Fragment>
-      {ROUTES.map(({ name, path }) => {
+      {NAV_ROUTES.map(({ name, path }) => {
         return (
           <NavMenuLists key={name}>
             <NavMenuList>

@@ -1,5 +1,4 @@
-export const ROUTES = [
-  { name: "home", path: "/" },
+export const NAV_ROUTES = [
   { name: "developers", path: "/developers" },
   { name: "projects", path: "/projects" },
   { name: "meetups", path: "/meetups" },
