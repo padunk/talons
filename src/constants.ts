@@ -1,3 +1,12 @@
+export const ROUTES = [
+  { name: "home", path: "/" },
+  { name: "developers", path: "/developers" },
+  { name: "projects", path: "/projects" },
+  { name: "meetups", path: "/meetups" },
+  { name: "blogs", path: "/blogs" },
+  { name: "hiring", path: "/hiring" },
+];
+
 export const COLORS = {
   black: "#222",
   white: "#f1f1f1",
