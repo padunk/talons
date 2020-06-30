@@ -1,78 +1,110 @@
 import * as React from "react";
 import styled from "styled-components";
-import { COLORS, BREAKPOINTS } from "../../constants";
+import { COLORS, BREAKPOINTS, BREAKPOINTS_SIZE } from "../../constants";
 import logo from "../../assets/icons/talons.svg";
 import { Link } from "react-router-dom";
 
 export function Navigation() {
   return (
     <NavWrapper>
-      <MobileOnly>
-        <HamburgerWrapper>
-          <ToggleNavMenu
-            type='checkbox'
-            name='hamburger-menu'
-            id='hamburger-menu'
-            hidden
-          />
-          <Label htmlFor='hamburger-menu'>
-            <HamburgerLine></HamburgerLine>
-          </Label>
-          <NavMenuWrapper>
-            <NavSearchWrapper>
-              <form action='/search/' method='post'>
-                <NavSearch type='text' name='nav-search' id='nav-search' />
-              </form>
-            </NavSearchWrapper>
-            <NavMenuLists>
-              <NavMenuList>Developers</NavMenuList>
-              <NavMenuList>Projects</NavMenuList>
-              <NavMenuList>Meetups</NavMenuList>
-              <NavMenuList>Blogs</NavMenuList>
-              <NavMenuList>Hiring Developers</NavMenuList>
-            </NavMenuLists>
-          </NavMenuWrapper>
-        </HamburgerWrapper>
-      </MobileOnly>
-      <LogoWrapper>
-        <Logo src={logo} alt='talons.dev logo' />
-      </LogoWrapper>
-      <ActionsWrapper>
-        <DesktopOnly>
-          <NavMenuWrapper>
-            <NavSearchWrapper>
-              <form action='/search/' method='post'>
-                <NavSearch type='text' name='nav-search' id='nav-search' />
-              </form>
-            </NavSearchWrapper>
-            <NavMenuLists>
-              <NavMenuList>Developers</NavMenuList>
-              <NavMenuList>Projects</NavMenuList>
-              <NavMenuList>Meetups</NavMenuList>
-              <NavMenuList>Blogs</NavMenuList>
-              <NavMenuList>Hiring Developers</NavMenuList>
-            </NavMenuLists>
-          </NavMenuWrapper>
-        </DesktopOnly>
-        <LogWrapper>
-          <LogActions display='none'>
-            <Link to='/enter/register' hidden>
-              Register
-            </Link>
-          </LogActions>
-          <LogActions display='flex'>
-            <Login to='/enter/login'>Log in</Login>
-          </LogActions>
-        </LogWrapper>
-      </ActionsWrapper>
+      <Container>
+        <MobileOnly>
+          <HamburgerWrapper>
+            <ToggleNavMenu
+              type='checkbox'
+              name='hamburger-menu'
+              id='hamburger-menu'
+              hidden
+            />
+            <Label htmlFor='hamburger-menu'>
+              <HamburgerLine />
+            </Label>
+            <NavMenuWrapper>
+              <NavSearchWrapper>
+                <form action='/search/' method='post'>
+                  <NavSearch
+                    type='text'
+                    name='nav-search'
+                    id='nav-search'
+                    placeholder='Search'
+                  />
+                </form>
+              </NavSearchWrapper>
+              <NavMenuLists>
+                <NavMenuList>
+                  <NavMenuLink to='/developpers'>Developers</NavMenuLink>
+                </NavMenuList>
+                <NavMenuList>
+                  <NavMenuLink to='/projects'>Projects</NavMenuLink>
+                </NavMenuList>
+                <NavMenuList>
+                  <NavMenuLink to='/meetups'>Meetups</NavMenuLink>
+                </NavMenuList>
+                <NavMenuList>
+                  <NavMenuLink to='/blogs'>Blogs</NavMenuLink>
+                </NavMenuList>
+                <NavMenuList>
+                  <NavMenuLink to='/hiring'>Hiring Developers</NavMenuLink>
+                </NavMenuList>
+              </NavMenuLists>
+            </NavMenuWrapper>
+          </HamburgerWrapper>
+        </MobileOnly>
+        <LogoWrapper>
+          <LogoLink to='/'>
+            <Logo src={logo} alt='talons.dev logo' />
+          </LogoLink>
+        </LogoWrapper>
+        <ActionsWrapper>
+          <DesktopOnly>
+            <NavMenuWrapper>
+              <NavSearchWrapper>
+                <form action='/search/' method='post'>
+                  <NavSearch
+                    type='text'
+                    name='nav-search'
+                    id='nav-search'
+                    placeholder='Search'
+                  />
+                </form>
+              </NavSearchWrapper>
+              <NavMenuLists>
+                <NavMenuList>
+                  <NavMenuLink to='/developpers'>Developers</NavMenuLink>
+                </NavMenuList>
+                <NavMenuList>
+                  <NavMenuLink to='/projects'>Projects</NavMenuLink>
+                </NavMenuList>
+                <NavMenuList>
+                  <NavMenuLink to='/meetups'>Meetups</NavMenuLink>
+                </NavMenuList>
+                <NavMenuList>
+                  <NavMenuLink to='/blogs'>Blogs</NavMenuLink>
+                </NavMenuList>
+                <NavMenuList>
+                  <NavMenuLink to='/hiring'>Hiring Developers</NavMenuLink>
+                </NavMenuList>
+              </NavMenuLists>
+            </NavMenuWrapper>
+          </DesktopOnly>
+          <LogWrapper>
+            <LogActions>
+              <Login to='/enter/login'>Log in</Login>
+            </LogActions>
+            <DesktopOnly>
+              <LogActions>
+                <Register to='/enter/register'>Register</Register>
+              </LogActions>
+            </DesktopOnly>
+          </LogWrapper>
+        </ActionsWrapper>
+      </Container>
     </NavWrapper>
   );
 }
 
 const DesktopOnly = styled.span`
-  @media ${BREAKPOINTS.sm} {
-    display: none;
-  }
+  display: none;
 
   @media ${BREAKPOINTS.lg} {
     display: block;
@@ -82,6 +114,27 @@ const DesktopOnly = styled.span`
 const MobileOnly = styled.span`
   @media ${BREAKPOINTS.lg} {
     display: none;
+  }
+`;
+
+const NavMenuLink = styled(Link)`
+  font-size: 1.8rem;
+  font-family: inherit;
+  text-decoration: none;
+  transition: color 250ms;
+
+  &:link,
+  &:visited {
+    color: ${COLORS.grayDark};
+  }
+
+  &:hover,
+  &:active {
+    color: ${COLORS.tertiary};
+  }
+
+  @media ${BREAKPOINTS.xxl} {
+    font-size: 2rem;
   }
 `;
 
@@ -118,12 +171,18 @@ const NavSearch = styled.input`
     border: 1px solid ${COLORS.secondary};
     box-shadow: 0 0 6px 2px ${COLORS.secondaryLightAlpha};
   }
+
+  @media ${BREAKPOINTS.xxl} {
+    font-size: 1.8rem;
+  }
 `;
 
 const NavSearchWrapper = styled.div`
   @media ${BREAKPOINTS.lg} {
     order: 2;
     padding-left: 3rem;
+    display: flex;
+    align-items: center;
   }
 `;
 
@@ -147,7 +206,7 @@ const NavMenuWrapper = styled.div`
     transform: translateY(0);
     opacity: 1;
     position: static;
-    width: 100%;
+    width: auto;
     pointer-events: all;
     padding: 0;
   }
@@ -157,31 +216,61 @@ const Login = styled(Link)`
   font-size: 1.8rem;
   font-family: inherit;
   text-decoration: none;
+  transition: color 250ms;
 
   &:link,
-  &:visited,
+  &:visited {
+    color: ${COLORS.grayDark};
+  }
+
   &:hover,
   &:active {
-    color: ${COLORS.gray};
+    color: ${COLORS.tertiary};
   }
 `;
 
-const LogActions = styled.div<{ display: string }>`
-  display: ${(props) => props.display};
+const Register = styled(Link)`
+  font-size: 1.8rem;
+  font-family: inherit;
+  text-decoration: none;
+  background: ${COLORS.primary};
+  padding: 6px 12px;
+  border-radius: 1rem;
+  transition: color 250ms;
+
+  &:link,
+  &:visited {
+    color: ${COLORS.grayDark};
+  }
+
+  &:hover,
+  &:active {
+    color: ${COLORS.tertiary};
+  }
+`;
+
+const LogActions = styled.div`
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: 10rem;
 `;
 
 const LogWrapper = styled.div`
   height: 100%;
   min-width: 6rem;
   padding: 5px;
+
+  @media ${BREAKPOINTS.lg} {
+    display: flex;
+    justify-content: space-around;
+    max-width: 20rem;
+  }
 `;
 
 const ActionsWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   min-width: 6rem;
@@ -191,7 +280,6 @@ const ActionsWrapper = styled.div`
     width: 100%;
     justify-content: space-between;
     padding-left: 2rem;
-    padding-right: 2rem;
   }
 `;
 
@@ -201,6 +289,11 @@ const Logo = styled(UnstyledImg)`
   width: 100%;
   height: 100%;
   object-fit: contain;
+`;
+
+const LogoLink = styled(Link)`
+  width: 100%;
+  height: 100%;
 `;
 
 const LogoWrapper = styled.div`
@@ -214,6 +307,7 @@ const LogoWrapper = styled.div`
 
   @media ${BREAKPOINTS.lg} {
     width: 20rem;
+    padding-left: 2rem;
   }
 `;
 
@@ -282,12 +376,34 @@ const HamburgerWrapper = styled.div`
   background: ${COLORS.black};
 `;
 
-const NavWrapper = styled.nav`
-  width: 100vw;
+const Container = styled.div`
+  max-width: ${BREAKPOINTS_SIZE.xl}px;
+  width: 100%;
   height: 6rem;
+  padding-right: 2rem;
   position: fixed;
   z-index: 999;
   display: flex;
   align-items: center;
+  margin: 0 auto;
+
+  @media ${BREAKPOINTS.lg} {
+    transform: translateX(-50%);
+    left: 50%;
+    padding-right: 0;
+  }
+
+  @media ${BREAKPOINTS.xxl} {
+    height: 8rem;
+  }
+`;
+
+const NavWrapper = styled.nav`
+  width: 100vw;
+  height: 6rem;
   background: ${COLORS.white};
+
+  @media ${BREAKPOINTS.xxl} {
+    height: 8rem;
+  }
 `;
