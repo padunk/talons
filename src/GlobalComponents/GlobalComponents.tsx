@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import styled from "styled-components";
 import { BREAKPOINTS } from "../constants";
 
@@ -38,8 +38,10 @@ export const MobileOnly = styled.span`
   }
 `;
 
-export const UnstyledLabel = (props: any) => (
-  <label {...props}>{props.children}</label>
-);
+export const UnstyledLabel = (
+  props: React.LabelHTMLAttributes<HTMLLabelElement>
+) => <label {...props}>{props.children}</label>;
 
-export const UnstyledImg = (props: any) => <img {...props} alt={props.alt} />;
+export const UnstyledImg = (
+  props: React.ImgHTMLAttributes<HTMLImageElement>
+) => <img {...props} alt={props.alt} />;

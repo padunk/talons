@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function HeroSVG(props: any) {
+function HeroSVG(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg data-name='Layer 1' {...props} viewBox="0 0 972.38479 563.40011">
       <path fill='#3f3d56' d='M0 501.562h963.51v2.241H0z' />

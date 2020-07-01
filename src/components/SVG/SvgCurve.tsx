@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgCurve(props: any) {
+function SvgCurve(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox='0 0 361.421 26.458' {...props}>
       <path
