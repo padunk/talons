@@ -8,13 +8,15 @@ export function Register() {
 }
 
 const RegisterLink = styled(Link)`
+  max-width: 10rem;
+  text-align: center;
   font-size: 1.8rem;
   font-family: inherit;
   text-decoration: none;
   background: ${COLORS.primary};
   padding: 6px 12px;
-  border-radius: 1rem;
-  transition: color 250ms;
+  border-radius: 7px;
+  transition: color 250ms, background 250ms ease-out;
 
   &:link,
   &:visited {
@@ -24,5 +26,6 @@ const RegisterLink = styled(Link)`
   &:hover,
   &:active {
     color: ${COLORS.tertiary};
+    background: ${COLORS.primaryAlphaLight};
   }
 `;
