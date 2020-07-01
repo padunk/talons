@@ -7,6 +7,8 @@ import {
   DesktopOnly,
   MobileOnly,
   Container,
+  UnstyledImg,
+  UnstyledLabel,
 } from "../../GlobalComponents/GlobalComponents";
 import { NavMenu } from "../NavMenu/NavMenu";
 import { Register } from "../Register/Register";
@@ -168,8 +170,6 @@ const ActionsWrapper = styled.div`
   }
 `;
 
-const UnstyledImg = (props: any) => <img {...props} alt={props.alt} />;
-
 const Logo = styled(UnstyledImg)`
   width: 100%;
   height: 100%;
@@ -195,10 +195,6 @@ const LogoWrapper = styled.div`
     padding-left: 2rem;
   }
 `;
-
-const UnstyledLabel = (props: any) => (
-  <label {...props}>{props.children}</label>
-);
 
 const HamburgerLine = styled.span`
   height: 2px;
@@ -263,6 +259,7 @@ const HamburgerWrapper = styled.div`
 
 const NavWrapper = styled.nav`
   max-width: ${BREAKPOINTS_SIZE.xl}px;
+  background: ${COLORS.white};
   width: 100%;
   height: 6rem;
   padding-right: 2rem;
