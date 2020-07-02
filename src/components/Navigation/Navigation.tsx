@@ -16,7 +16,7 @@ import { Login } from "../Login/Login";
 
 export function Navigation() {
   return (
-    <Container height='6rem' background={COLORS.white} heightXXL='8rem'>
+    <NavContainer height='6rem' background={COLORS.white} heightXXL='8rem'>
       <NavWrapper>
         <MobileOnly>
           <HamburgerWrapper>
@@ -35,7 +35,7 @@ export function Navigation() {
                   <NavSearch
                     type='text'
                     name='nav-search'
-                    id='nav-search'
+                    id='nav-search-1'
                     placeholder='Search'
                   />
                 </form>
@@ -57,7 +57,7 @@ export function Navigation() {
                   <NavSearch
                     type='text'
                     name='nav-search'
-                    id='nav-search'
+                    id='nav-search-2'
                     placeholder='Search'
                   />
                 </form>
@@ -77,7 +77,7 @@ export function Navigation() {
           </LogWrapper>
         </ActionsWrapper>
       </NavWrapper>
-    </Container>
+    </NavContainer>
   );
 }
 
@@ -277,5 +277,18 @@ const NavWrapper = styled.nav`
 
   @media ${BREAKPOINTS.xxl} {
     height: 8rem;
+  }
+`;
+
+const NavContainer = styled(Container)<{
+  height: string;
+  background: string;
+  heightXXL: string;
+}>`
+  height: ${(props) => props.height};
+  background: ${(props) => props.background};
+
+  @media ${BREAKPOINTS.xxl} {
+    height: ${(props) => props.heightXXL};
   }
 `;
