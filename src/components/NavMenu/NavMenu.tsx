@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-import { COLORS, BREAKPOINTS, NAV_ROUTES } from "../../constants";
-import { Link } from "react-router-dom";
+import { BREAKPOINTS, NAV_ROUTES } from "../../constants";
+import { PlainLink } from "../GlobalComponents/GlobalComponents";
 
 export function NavMenu() {
   return (
@@ -10,7 +10,7 @@ export function NavMenu() {
         return (
           <NavMenuLists key={name}>
             <NavMenuList>
-              <NavMenuLink to={path}>{name}</NavMenuLink>
+              <PlainLink to={path}>{name}</PlainLink>
             </NavMenuList>
           </NavMenuLists>
         );
@@ -18,28 +18,6 @@ export function NavMenu() {
     </React.Fragment>
   );
 }
-
-const NavMenuLink = styled(Link)`
-  font-size: 1.8rem;
-  text-transform: capitalize;
-  font-family: inherit;
-  text-decoration: none;
-  transition: color 250ms;
-
-  &:link,
-  &:visited {
-    color: ${COLORS.grayDark};
-  }
-
-  &:hover,
-  &:active {
-    color: ${COLORS.tertiary};
-  }
-
-  @media ${BREAKPOINTS.xxl} {
-    font-size: 2rem;
-  }
-`;
 
 const NavMenuList = styled.li`
   padding: 1rem 0;

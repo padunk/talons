@@ -5,7 +5,7 @@ import { BREAKPOINTS, COLORS, FONT_SIZES, FONT_HEADER } from "../../constants";
 import {
   Container,
   TabletAndUp,
-} from "../../GlobalComponents/GlobalComponents";
+} from "../GlobalComponents/GlobalComponents";
 import { Spacer } from "../Spacer/Spacer";
 import { Register } from "../Register/Register";
 import { SvgCurve } from "../SVG/SvgCurve";

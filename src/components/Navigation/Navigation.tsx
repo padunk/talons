@@ -9,7 +9,7 @@ import {
   Container,
   UnstyledImg,
   UnstyledLabel,
-} from "../../GlobalComponents/GlobalComponents";
+} from "../GlobalComponents/GlobalComponents";
 import { NavMenu } from "../NavMenu/NavMenu";
 import { Register } from "../Register/Register";
 import { Login } from "../Login/Login";
