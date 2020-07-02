@@ -14,6 +14,7 @@ export const COLORS = {
   grayDark: "#424242",
   grayLight: "#E0E0E0",
   grayTextDark: "rgba(66,66,66,0.9)",
+  grayTextMed: "rgba(156,156,156,0.8)",
   grayTextLight: "rgba(206,206,206,0.9)",
   primary: "#ffb200",
   primaryMedDark: "#805900",
@@ -57,6 +58,7 @@ export const BREAKPOINTS = {
 
 export const FONT_SIZES = {
   sm: "1.2rem",
+  mdMin: "1.4rem",
   md: "1.6rem",
   mdMax: "1.8rem",
   lg: "2rem",
@@ -64,4 +66,7 @@ export const FONT_SIZES = {
   xxl: "3.2rem",
 };
 
-export const FONT_HEADER = "'Alegreya', serif";
+export const FONTS = {
+  serif: "'Alegreya', serif",
+  sansSerif: "'Roboto Condensed', sans-serif",
+};

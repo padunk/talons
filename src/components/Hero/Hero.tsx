@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { HeroSVG } from "../SVG/HeroSVG";
-import { BREAKPOINTS, COLORS, FONT_SIZES, FONT_HEADER } from "../../constants";
+import { BREAKPOINTS, COLORS, FONT_SIZES, FONTS } from "../../constants";
 import {
   Container,
   TabletAndUp,
@@ -41,7 +41,7 @@ export function Hero() {
 
 const StyledSvgCurve = styled(SvgCurve)`
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   fill: white;
   transform: rotateY(180deg);
 `;
@@ -57,7 +57,7 @@ const Text = styled.p`
 
 const HeroText = styled.h2`
   font-size: ${FONT_SIZES.xl};
-  font-family: ${FONT_HEADER};
+  font-family: ${FONTS.serif};
   color: ${COLORS.black};
 
   @media ${BREAKPOINTS.lg} {
