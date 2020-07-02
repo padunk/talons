@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
-import { BREAKPOINTS } from "../constants";
+import { BREAKPOINTS, COLORS } from "../../constants";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div<{
   height?: string;
@@ -45,3 +46,25 @@ export const UnstyledLabel = (
 export const UnstyledImg = (
   props: React.ImgHTMLAttributes<HTMLImageElement>
 ) => <img {...props} alt={props.alt} />;
+
+export const PlainLink = styled(Link)`
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  font-family: inherit;
+  text-decoration: none;
+  transition: color 250ms;
+
+  &:link,
+  &:visited {
+    color: ${COLORS.grayDark};
+  }
+
+  &:hover,
+  &:active {
+    color: ${COLORS.tertiary};
+  }
+
+  @media ${BREAKPOINTS.xxl} {
+    font-size: 2rem;
+  }
+`;
