@@ -3,18 +3,8 @@ import styled from "styled-components";
 import { BREAKPOINTS, COLORS } from "../../constants";
 import { Link } from "react-router-dom";
 
-export const Container = styled.div<{
-  height?: string;
-  background?: string;
-  heightXXL?: string;
-}>`
+export const Container = styled.div`
   min-width: 100%;
-  height: ${(props) => props.height};
-  background: ${(props) => props.background};
-
-  @media ${BREAKPOINTS.xxl} {
-    height: ${(props) => props.heightXXL};
-  }
 `;
 
 export const DesktopOnly = styled.span`
