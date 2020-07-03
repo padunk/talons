@@ -8,7 +8,7 @@ export const NAV_ROUTES = [
 
 export const COLORS = {
   black: "#222",
-  white: "#f1f1f1",
+  white: "#fafafa",
   whiteAlpha: "rgba(240, 240, 255,0.85)",
   gray: "#9e9e9e",
   grayDark: "#424242",
@@ -34,6 +34,7 @@ export const COLORS = {
   tertiaryDark: "#220B73",
   tertiaryMedLight: "#3813BF",
   tertiaryLight: "#4B19FF",
+  red: "rgb(205, 92, 92)",
 };
 
 export const BREAKPOINTS_SIZE = {
