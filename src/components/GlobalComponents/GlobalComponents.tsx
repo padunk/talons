@@ -33,13 +33,33 @@ export const UnstyledLabel = (
   props: React.LabelHTMLAttributes<HTMLLabelElement>
 ) => <label {...props}>{props.children}</label>;
 
-export const UnstyledImg = (
-  props: React.ImgHTMLAttributes<HTMLImageElement>
-) => <img {...props} alt={props.alt} />;
+export const UnstyledInputText = styled.input`
+  padding: 8px 14px;
+  font-family: inherit;
+  border-radius: 2rem;
+  background: ${COLORS.grayLight};
+  border: none;
+  outline: none;
 
-export const UnstyledButton = (
-  props: React.ButtonHTMLAttributes<HTMLButtonElement>
-) => <button {...props}>{props.children}</button>;
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 6px 2px ${COLORS.secondaryLightAlpha};
+  }
+`;
+
+export const UnstyledImg = styled.img`
+  display: block;
+`
+
+// export const UnstyledButton = (
+//   props: React.ButtonHTMLAttributes<HTMLButtonElement>
+// ) => <button {...props}>{props.children}</button>;
+
+export const UnstyledButton = styled.button`
+  border: none;
+  outline: none;
+  background: none;
+`;
 
 export const PlainLink = styled(Link)`
   font-size: 1.8rem;
