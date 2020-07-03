@@ -28,10 +28,18 @@ export function CategoriesList() {
       <CategoriesWrapper>
         <InnerWrapper>
           <Arrow className='left' onClick={backClick}>
-            <SvgArrow width='1.4rem' style={{ transform: "rotate(90deg)" }} />
+            <SvgArrow
+              width='100%'
+              height='1.4rem'
+              style={{ transform: "rotate(90deg)" }}
+            />
           </Arrow>
           <Arrow className='right' onClick={forwardClick}>
-            <SvgArrow width='1.4rem' style={{ transform: "rotate(-90deg)" }} />
+            <SvgArrow
+              width='100%'
+              height='1.4rem'
+              style={{ transform: "rotate(-90deg)" }}
+            />
           </Arrow>
           <Spacer size='2rem' inline />
           <CatLists ref={categoryList}>
@@ -79,6 +87,7 @@ const Arrow = styled.span`
   width: 4rem;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   &.left {
     left: 0;
