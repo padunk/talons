@@ -9,6 +9,7 @@ import {
   Container,
   UnstyledImg,
   UnstyledLabel,
+  UnstyledInputText,
 } from "../GlobalComponents/GlobalComponents";
 import { NavMenu } from "../NavMenu/NavMenu";
 import { Register } from "../Register/Register";
@@ -81,18 +82,12 @@ export function Navigation() {
   );
 }
 
-const NavSearch = styled.input`
-  padding: 8px 14px;
+const NavSearch = styled(UnstyledInputText)`
   font-size: 1.6rem;
-  font-family: inherit;
-  border-radius: 2rem;
   background: ${COLORS.grayLight};
-  border: none;
-  outline: none;
 
   &:focus,
   &:hover {
-    border: 1px solid ${COLORS.secondary};
     box-shadow: 0 0 6px 2px ${COLORS.secondaryLightAlpha};
   }
 
