@@ -37,6 +37,10 @@ export const UnstyledImg = (
   props: React.ImgHTMLAttributes<HTMLImageElement>
 ) => <img {...props} alt={props.alt} />;
 
+export const UnstyledButton = (
+  props: React.ButtonHTMLAttributes<HTMLButtonElement>
+) => <button {...props}>{props.children}</button>;
+
 export const PlainLink = styled(Link)`
   font-size: 1.8rem;
   text-transform: capitalize;
