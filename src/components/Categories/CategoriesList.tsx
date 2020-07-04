@@ -1,9 +1,15 @@
 import React from "react";
-import { Container, PlainLink } from "../GlobalComponents/GlobalComponents";
+import {
+  Container,
+  PlainLink,
+  BigTabletOnly,
+} from "../GlobalComponents/GlobalComponents";
 import styled from "styled-components";
 import { SvgArrow } from "../SVG/Arrow";
 import { Spacer } from "../Spacer/Spacer";
 import { BREAKPOINTS, COLORS } from "../../constants";
+import { FilterButton, SortButton } from "../Buttons/Button";
+import { SortFilterMenu } from "../SortFilterMenu/SortFilterMenu";
 
 const CATEGORIES = [
   { name: "web sites", path: "web-sites" },
@@ -21,6 +27,23 @@ export function CategoriesList() {
 
   const backClick = () => {
     categoryList.current.scrollLeft -= categoryList.current.clientWidth;
+  };
+
+  const [toggleOptions, setToggleOptions] = React.useState(false);
+  const [type, setType] = React.useState("");
+
+  const showFilterOptions = (
+    event: React.SyntheticEvent<HTMLButtonElement>
+  ) => {
+    const selectType: string = event.currentTarget.dataset.type!;
+    if (toggleOptions && type === selectType) {
+      setToggleOptions(false);
+    } else if (toggleOptions && type !== selectType) {
+      setType(selectType);
+    } else {
+      setType(selectType);
+      setToggleOptions((opts) => !opts);
+    }
   };
 
   return (
@@ -52,9 +75,30 @@ export function CategoriesList() {
           <Spacer size='2rem' inline />
         </InnerWrapper>
       </CategoriesWrapper>
+      <BigTabletOnly>
+        <Wrapper>
+          <div>
+            <SortButton data-type='sort' onClick={showFilterOptions} />
+          </div>
+          <div>
+            <FilterButton data-type='filter' onClick={showFilterOptions} />
+          </div>
+        </Wrapper>
+      </BigTabletOnly>
+      <SortFilterMenu
+        toggleOptions={toggleOptions}
+        setToggleOptions={setToggleOptions}
+        type={type}
+      />
     </CatContainer>
   );
 }
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+`;
 
 const CatList = styled.li`
   padding-right: 1rem;
@@ -121,4 +165,9 @@ const CatContainer = styled(Container)`
   top: 6rem;
   background: ${COLORS.white};
   z-index: 900;
+
+  @media ${BREAKPOINTS.mdMax} {
+    display: flex;
+    justify-content: center;
+  }
 `;
