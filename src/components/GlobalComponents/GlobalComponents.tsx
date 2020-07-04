@@ -15,6 +15,14 @@ export const DesktopOnly = styled.span`
   }
 `;
 
+export const BigTabletOnly = styled.span`
+  display: none;
+
+  @media ${BREAKPOINTS.mdMax} {
+    display: block;
+  }
+`;
+
 export const TabletAndUp = styled.span`
   display: none;
 
