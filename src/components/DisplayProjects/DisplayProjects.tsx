@@ -17,7 +17,7 @@ export function DisplayProjects() {
     <Container>
       <CategoriesList />
       <Spacer size='3rem' />
-      {/* <ProjectCard /> */}
+      <ProjectCard />
       <Spacer size='5rem' />
       <SortFilter />
     </Container>
