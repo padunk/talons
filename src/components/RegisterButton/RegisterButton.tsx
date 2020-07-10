@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { COLORS } from "../../constants";
 
-export function Register() {
+export function RegisterButton() {
   return <RegisterLink to='/enter/register'>Register</RegisterLink>;
 }
 

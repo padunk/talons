@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { COLORS } from "../../constants";
 
-export function Login() {
+export function LoginButton() {
   return <LoginLink to='/enter/login'>Log in</LoginLink>;
 }
 
