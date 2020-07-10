@@ -1,9 +1,10 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Home } from "./components/Home/Home";
-import { Login } from "./components/Login/Login";
-import { Register } from "./components/Register/Register";
+import { LoginButton } from "./components/LoginButton/LoginButton";
+import { RegisterButton } from "./components/RegisterButton/RegisterButton";
 import { Layout } from "./components/Layout/Layout";
+import { EnterPage } from "./components/Enter/EnterPage";
 
 function App() {
   return (
@@ -13,11 +14,11 @@ function App() {
           <Route exact path='/'>
             <Home />
           </Route>
-          <Route path='/login'>
-            <Login />
+          <Route path='/enter/:enterParams'>
+            <EnterPage />
           </Route>
-          <Route path='/register'>
-            <Register />
+          <Route path='/enter/:enterParams'>
+            <EnterPage />
           </Route>
         </Switch>
       </Layout>
