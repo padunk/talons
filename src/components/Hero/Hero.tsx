@@ -7,7 +7,7 @@ import {
   TabletAndUp,
 } from "../GlobalComponents/GlobalComponents";
 import { Spacer } from "../Spacer/Spacer";
-import { Register } from "../Register/Register";
+import { RegisterButton } from "../RegisterButton/RegisterButton";
 import { SvgCurve } from "../SVG/SvgCurve";
 
 export function Hero() {
@@ -29,7 +29,7 @@ export function Hero() {
             special awesome projects.
           </Text>
           <Spacer size='2rem' />
-          <Register />
+          <RegisterButton />
         </TextWrapper>
       </OuterWrapper>
       <TabletAndUp>

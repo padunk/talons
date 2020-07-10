@@ -12,8 +12,8 @@ import {
   UnstyledInputText,
 } from "../GlobalComponents/GlobalComponents";
 import { NavMenu } from "../NavMenu/NavMenu";
-import { Register } from "../Register/Register";
-import { Login } from "../Login/Login";
+import { RegisterButton } from "../RegisterButton/RegisterButton";
+import { LoginButton } from "../LoginButton/LoginButton";
 
 export function Navigation() {
   return (
@@ -68,11 +68,11 @@ export function Navigation() {
           </DesktopOnly>
           <LogWrapper>
             <LogActions>
-              <Login />
+              <LoginButton />
             </LogActions>
             <DesktopOnly>
               <LogActions>
-                <Register />
+                <RegisterButton />
               </LogActions>
             </DesktopOnly>
           </LogWrapper>
