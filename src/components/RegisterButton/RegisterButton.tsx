@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { COLORS } from "../../constants";
+import { COLORS, MAIN_ROUTES } from "../../constants";
 
 export function RegisterButton() {
-  return <RegisterLink to='/enter/register'>Register</RegisterLink>;
+  return <RegisterLink to={MAIN_ROUTES.register}>Register</RegisterLink>;
 }
 
 const RegisterLink = styled(Link)`

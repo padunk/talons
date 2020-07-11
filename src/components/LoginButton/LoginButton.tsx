@@ -1,10 +1,10 @@
 import * as React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { COLORS } from "../../constants";
+import { COLORS, MAIN_ROUTES } from "../../constants";
 
 export function LoginButton() {
-  return <LoginLink to='/enter/login'>Log in</LoginLink>;
+  return <LoginLink to={MAIN_ROUTES.login}>Log in</LoginLink>;
 }
 
 const LoginLink = styled(Link)`
