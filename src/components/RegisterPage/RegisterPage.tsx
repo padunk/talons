@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link, withRouter } from "react-router-dom";
-import { MAIN_ROUTES, FONT_SIZES, COLORS } from "../../constants";
+import { MAIN_ROUTES, FONT_SIZES, COLORS } from "../../constants/constants";
 import { Container, UnstyledForm } from "../GlobalComponents/GlobalComponents";
 import { Button } from "../Buttons/Button";
 import { useFirebaseContext } from "../Firebase";

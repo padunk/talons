@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { MAIN_ROUTES, FONT_SIZES, COLORS } from "../../constants";
+import { MAIN_ROUTES, FONT_SIZES, COLORS } from "../../constants/constants";
 import { Container } from "../GlobalComponents/GlobalComponents";
 import { Button } from "../Buttons/Button";
 

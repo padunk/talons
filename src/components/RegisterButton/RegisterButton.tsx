@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { COLORS, MAIN_ROUTES } from "../../constants";
+import { COLORS, MAIN_ROUTES } from "../../constants/constants";
 
 export function RegisterButton() {
   return <RegisterLink to={MAIN_ROUTES.register}>Register</RegisterLink>;

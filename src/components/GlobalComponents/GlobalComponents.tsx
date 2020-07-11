@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { BREAKPOINTS, COLORS } from "../../constants";
+import { BREAKPOINTS, COLORS } from "../../constants/constants";
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`

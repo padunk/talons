@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { UnstyledButton } from "../GlobalComponents/GlobalComponents";
-import { COLORS } from "../../constants";
+import { COLORS } from "../../constants/constants";
 import { GrFilter, GrSort } from "react-icons/gr";
 
 export function Button(props: any) {

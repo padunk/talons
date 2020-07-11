@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from 'styled-components';
 import USER_DATA from "../../mockData/USER_DATA.json";
 import PROJECTS_DATA from "../../mockData/PROJECTS_DATA.json";
-import { BREAKPOINTS, FONT_SIZES, FONTS, COLORS } from "../../constants";
+import { BREAKPOINTS, FONT_SIZES, FONTS, COLORS } from "../../constants/constants";
 import { SvgComments } from "../SVG/Comments";
 import { SvgHeart } from "../SVG/Heart";
 import { SvgFrame } from "../SVG/Frame";

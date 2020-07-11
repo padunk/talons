@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { COLORS, BREAKPOINTS } from "../../constants";
+import { COLORS, BREAKPOINTS } from "../../constants/constants";
 import { FilterButton, SortButton } from "../Buttons/Button";
 import { SortFilterMenu } from "../SortFilterMenu/SortFilterMenu";
 

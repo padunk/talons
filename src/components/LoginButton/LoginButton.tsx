@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { COLORS, MAIN_ROUTES } from "../../constants";
+import { COLORS, MAIN_ROUTES } from "../../constants/constants";
 
 export function LoginButton() {
   return <LoginLink to={MAIN_ROUTES.login}>Log in</LoginLink>;

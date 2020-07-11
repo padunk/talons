@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { BREAKPOINTS, NAV_ROUTES } from "../../constants";
+import { BREAKPOINTS, NAV_ROUTES } from "../../constants/constants";
 import { PlainLink } from "../GlobalComponents/GlobalComponents";
 
 export function NavMenu() {

@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { HeroSVG } from "../SVG/HeroSVG";
-import { BREAKPOINTS, COLORS, FONT_SIZES, FONTS } from "../../constants";
+import { BREAKPOINTS, COLORS, FONT_SIZES, FONTS } from "../../constants/constants";
 import {
   Container,
   TabletAndUp,

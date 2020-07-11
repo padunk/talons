@@ -1,6 +1,6 @@
 import app from "firebase/app";
 import "firebase/auth";
-import { firebaseConfig } from "../../constants";
+import { firebaseConfig } from "../../constants/constants";
 
 export class Firebase {
   auth: any;

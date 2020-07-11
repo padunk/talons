@@ -4,7 +4,7 @@ import {
   UnstyledButton,
   UnstyledInputText,
 } from "../GlobalComponents/GlobalComponents";
-import { COLORS, FONT_SIZES, BREAKPOINTS } from "../../constants";
+import { COLORS, FONT_SIZES, BREAKPOINTS } from "../../constants/constants";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 
 export function SortFilterMenu({

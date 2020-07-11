@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { COLORS, BREAKPOINTS, BREAKPOINTS_SIZE } from "../../constants";
+import { COLORS, BREAKPOINTS, BREAKPOINTS_SIZE } from "../../constants/constants";
 import logo from "../../assets/icons/talons.svg";
 import { Link } from "react-router-dom";
 import {

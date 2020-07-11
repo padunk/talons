@@ -7,7 +7,7 @@ import {
 import styled from "styled-components";
 import { SvgArrow } from "../SVG/Arrow";
 import { Spacer } from "../Spacer/Spacer";
-import { BREAKPOINTS, COLORS } from "../../constants";
+import { BREAKPOINTS, COLORS } from "../../constants/constants";
 import { FilterButton, SortButton } from "../Buttons/Button";
 import { SortFilterMenu } from "../SortFilterMenu/SortFilterMenu";
 
