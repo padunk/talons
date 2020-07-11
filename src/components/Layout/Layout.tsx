@@ -4,7 +4,7 @@ import { Navigation } from '../Navigation/Navigation'
 export function Layout(props: any) {
   return (
     <React.Fragment>
-      <Navigation />
+      <Navigation authUser={props.authUser} />
       {props.children}
     </React.Fragment>
   )
