@@ -1,6 +1,10 @@
 import * as React from "react";
 import styled from "styled-components";
-import { COLORS, BREAKPOINTS, BREAKPOINTS_SIZE } from "../../constants/constants";
+import {
+  COLORS,
+  BREAKPOINTS,
+  BREAKPOINTS_SIZE,
+} from "../../constants/constants";
 import logo from "../../assets/icons/talons.svg";
 import { Link } from "react-router-dom";
 import {
@@ -14,8 +18,9 @@ import {
 import { NavMenu } from "../NavMenu/NavMenu";
 import { RegisterButton } from "../RegisterButton/RegisterButton";
 import { LoginButton } from "../LoginButton/LoginButton";
+import { LogoutButton } from "../LogoutButton/LogoutButton";
 
-export function Navigation() {
+export function Navigation(props: any) {
   return (
     <NavContainer height='6rem' background={COLORS.white} heightXXL='8rem'>
       <NavWrapper>
@@ -67,14 +72,22 @@ export function Navigation() {
             </NavMenuWrapper>
           </DesktopOnly>
           <LogWrapper>
-            <LogActions>
-              <LoginButton />
-            </LogActions>
-            <DesktopOnly>
+            {!props.authUser ? (
+              <React.Fragment>
+                <LogActions>
+                  <LoginButton />
+                </LogActions>
+                <DesktopOnly>
+                  <LogActions>
+                    <RegisterButton />
+                  </LogActions>
+                </DesktopOnly>
+              </React.Fragment>
+            ) : (
               <LogActions>
-                <RegisterButton />
+                <LogoutButton />
               </LogActions>
-            </DesktopOnly>
+            )}
           </LogWrapper>
         </ActionsWrapper>
       </NavWrapper>
