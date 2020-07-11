@@ -5,10 +5,7 @@ import { MAIN_ROUTES, FONT_SIZES, COLORS } from "../../constants/constants";
 import { Container, UnstyledForm } from "../GlobalComponents/GlobalComponents";
 import { Button } from "../Buttons/Button";
 import { useFirebaseContext } from "../Firebase";
-
-interface ErrorMessage {
-  message: string;
-}
+import { ErrorMessage } from "../../constants/interfaces";
 
 function RegisterPageComp(props: any) {
   const [username, setUserName] = React.useState<string>("");
