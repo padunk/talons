@@ -1,24 +1,31 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Home } from "./components/Home/Home";
-import { LoginButton } from "./components/LoginButton/LoginButton";
-import { RegisterButton } from "./components/RegisterButton/RegisterButton";
+import { LoginPage } from "./components/LoginPage/LoginPage";
+import { RegisterPage } from "./components/RegisterPage/RegisterPage";
 import { Layout } from "./components/Layout/Layout";
-import { EnterPage } from "./components/Enter/EnterPage";
+import { MAIN_ROUTES } from "./constants";
+import { ResetPasswordPage } from "./components/ResetPasswordPage/ResetPasswordPage";
 
 function App() {
   return (
     <div>
       <Layout>
         <Switch>
-          <Route exact path='/'>
+          <Route exact path={MAIN_ROUTES.landing}>
             <Home />
           </Route>
-          <Route path='/enter/:enterParams'>
-            <EnterPage />
+          <Route exact path={MAIN_ROUTES.home}>
+            <Home />
           </Route>
-          <Route path='/enter/:enterParams'>
-            <EnterPage />
+          <Route path={MAIN_ROUTES.register}>
+            <RegisterPage />
+          </Route>
+          <Route path={MAIN_ROUTES.login}>
+            <LoginPage />
+          </Route>
+          <Route path={MAIN_ROUTES["password-forget"]}>
+            <ResetPasswordPage />
           </Route>
         </Switch>
       </Layout>
