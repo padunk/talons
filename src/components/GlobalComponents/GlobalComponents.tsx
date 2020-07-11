@@ -63,6 +63,10 @@ export const UnstyledImg = styled.img`
 //   props: React.ButtonHTMLAttributes<HTMLButtonElement>
 // ) => <button {...props}>{props.children}</button>;
 
+export const UnstyledForm = (
+  props: React.FormHTMLAttributes<HTMLFormElement>
+) => <form {...props}>{props.children}</form>;
+
 export const UnstyledButton = styled.button`
   border: none;
   outline: none;
