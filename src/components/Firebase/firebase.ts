@@ -3,7 +3,7 @@ import "firebase/auth";
 import { firebaseConfig } from "../../constants/constants";
 
 export class Firebase {
-  auth: any;
+  auth: firebase.auth.Auth;
   constructor() {
     app.initializeApp(firebaseConfig);
     this.auth = app.auth();
@@ -17,8 +17,8 @@ export class Firebase {
 
   doSignOut = () => this.auth.signOut();
 
-  doPasswordReset = (email: string) => this.auth.sendPasswordResetEmail();
+  doPasswordReset = (email: string) => this.auth.sendPasswordResetEmail(email);
 
   doPasswordUpdate = (password: string) =>
-    this.auth.currentUser.updatePassword();
+    this.auth.currentUser?.updatePassword(password);
 }
