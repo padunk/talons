@@ -43,6 +43,7 @@ const ButtonSecondary = styled(UnstyledButton)`
   text-align: center;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 1.2rem 1.4rem;
   background: ${COLORS.white};
 
