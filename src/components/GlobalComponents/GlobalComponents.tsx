@@ -41,7 +41,11 @@ export const UnstyledLabel = (
   props: React.LabelHTMLAttributes<HTMLLabelElement>
 ) => <label {...props}>{props.children}</label>;
 
-export const UnstyledInputText = styled.input`
+export const RawInput = (
+  props: React.InputHTMLAttributes<HTMLInputElement>
+) => <input {...props} />;
+
+export const UnstyledInputText = styled(RawInput)`
   padding: 8px 14px;
   font-family: inherit;
   border-radius: 2rem;
@@ -57,7 +61,7 @@ export const UnstyledInputText = styled.input`
 
 export const UnstyledImg = styled.img`
   display: block;
-`
+`;
 
 // export const UnstyledButton = (
 //   props: React.ButtonHTMLAttributes<HTMLButtonElement>
@@ -92,5 +96,19 @@ export const PlainLink = styled(Link)`
 
   @media ${BREAKPOINTS.xxl} {
     font-size: 2rem;
+  }
+`;
+
+export const NavSearch = styled(UnstyledInputText)`
+  font-size: 1.6rem;
+  background: ${COLORS.grayLight};
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 6px 2px ${COLORS.secondaryLightAlpha};
+  }
+
+  @media ${BREAKPOINTS.xxl} {
+    font-size: 1.8rem;
   }
 `;
