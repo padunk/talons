@@ -19,6 +19,8 @@ import { NavMenu } from "../NavMenu/NavMenu";
 import { RegisterButton } from "../RegisterButton/RegisterButton";
 import { LoginButton } from "../LoginButton/LoginButton";
 import { LogoutButton } from "../LogoutButton/LogoutButton";
+import { RiAccountCircleLine } from "react-icons/ri";
+import { Spacer } from "../Spacer/Spacer";
 
 export function Navigation(props: any) {
   return (
@@ -86,6 +88,14 @@ export function Navigation(props: any) {
             ) : (
               <LogActions>
                 <LogoutButton />
+                <Spacer size='1rem' inline />
+                <Link to='/account'>
+                  <RiAccountCircleLine
+                    size='2.4rem'
+                    style={{ verticalAlign: "middle" }}
+                    stroke={COLORS.grayTextMed}
+                  />
+                </Link>
               </LogActions>
             )}
           </LogWrapper>
