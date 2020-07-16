@@ -4,8 +4,33 @@ import { Link } from "react-router-dom";
 import { MAIN_ROUTES, FONT_SIZES, COLORS } from "../../constants/constants";
 import { Container } from "../GlobalComponents/GlobalComponents";
 import { Button } from "../Buttons/Button";
+import { useFirebaseContext } from "../Firebase";
+import { ErrorMessage } from "../../constants/interfaces";
 
-export function ResetPasswordPage() {
+export function ResetPasswordPage(props: any) {
+  const [userEmail, setUserEmail] = React.useState<string>("");
+  const [error, setError] = React.useState<ErrorMessage>({
+    message: "",
+  });
+
+  const isInvalid = userEmail === "";
+  const firebaseContext = useFirebaseContext();
+
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    firebaseContext
+      .doPasswordReset(userEmail)
+      .then(() => {
+        // set all state to default
+        setUserEmail("");
+        setError({
+          message: "",
+        });
+        props.history.push(MAIN_ROUTES.login);
+      })
+      .catch((err: ErrorMessage) => setError({ message: err.message }));
+  };
+
   return (
     <Container>
       <InnerWrapper>
@@ -13,14 +38,20 @@ export function ResetPasswordPage() {
           <div>
             <p>RESET PASSWORD</p>
           </div>
-          <StyledForm action='' method='post'>
+          <ErrorDiv>{error.message && <p>{error.message}</p>}</ErrorDiv>
+          <StyledForm action='' method='post' onSubmit={onSubmit}>
             <FormInputWrapper>
               <label htmlFor='user-email'>Email:</label>
-              <input type='text' name='user-email' id='user-email' />
+              <input
+                type='text'
+                name='user-email'
+                id='user-email'
+                onChange={(event) => setUserEmail(event?.target.value)}
+              />
             </FormInputWrapper>
             <FormInputWrapper>
-              <Button type='submit' looks='primary'>
-                Reset my password
+              <Button type='submit' looks='primary' disabled={isInvalid}>
+                Reset My Password
               </Button>
             </FormInputWrapper>
           </StyledForm>
@@ -63,4 +94,11 @@ const InnerWrapper = styled.div`
   height: calc(100vh - 6rem);
   display: grid;
   place-items: center;
+`;
+
+const ErrorDiv = styled.div`
+  text-align: center;
+  font-size: 1.4rem;
+  color: indianred;
+  font-weight: bold;
 `;
