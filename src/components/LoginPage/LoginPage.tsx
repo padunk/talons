@@ -21,9 +21,9 @@ function LoginPageComp(props: any) {
     event.preventDefault();
     firebaseContext
       .doSignInWithEmailAndPassword(userEmail, userPassword)
-      .then((authUser: any) => {
+      .then((authUser: firebase.auth.UserCredential | null) => {
         // setUser
-        console.log(authUser);
+        // console.log(authUser);
         setUserEmail("");
         setUserPassword("");
         setError({

@@ -28,7 +28,7 @@ function RegisterPageComp(props: any) {
     event.preventDefault();
     firebaseContext
       .doCreateUserWithEmailAndPassword(userEmail, userPassword)
-      .then((authUser: any) => {
+      .then((authUser: firebase.auth.UserCredential | null) => {
         // setUser
         console.log(authUser);
         setUserName("");
