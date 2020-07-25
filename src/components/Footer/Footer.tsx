@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { GrTwitter, GrInstagram, GrFacebook } from "react-icons/gr";
+import { GrTwitter, GrInstagram, GrFacebook, GrGithub } from "react-icons/gr";
 import {
   NAV_ROUTES,
   BREAKPOINTS,
@@ -27,9 +27,24 @@ export function Footer() {
             <h2>All in one site to hire the best developer in the world.</h2>
           </div>
           <SocMedWrapper>
-            <GrTwitter size='2rem' />
-            <GrInstagram size='2rem' />
-            <GrFacebook size='2rem' />
+            <a
+              href='https://github.com/AbrahamAnakAgung'
+              target='_blank'
+              rel='noreferrer'>
+              <GrGithub size='2rem' />
+            </a>
+            <a
+              href='https://twitter.com/anakagungcorp'
+              target='_blank'
+              rel='noreferrer'>
+              <GrTwitter size='2rem' />
+            </a>
+            <a href='#' target='_blank' rel='noreferrer'>
+              <GrInstagram size='2rem' />
+            </a>
+            <a href='#' target='_blank' rel='noreferrer'>
+              <GrFacebook size='2rem' />
+            </a>
           </SocMedWrapper>
         </div>
         <FooterLinks>
