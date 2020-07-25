@@ -1,8 +1,13 @@
 import * as React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import USER_DATA from "../../mockData/USER_DATA.json";
 import PROJECTS_DATA from "../../mockData/PROJECTS_DATA.json";
-import { BREAKPOINTS, FONT_SIZES, FONTS, COLORS } from "../../constants/constants";
+import {
+  BREAKPOINTS,
+  FONT_SIZES,
+  FONTS,
+  COLORS,
+} from "../../constants/constants";
 import { SvgComments } from "../SVG/Comments";
 import { SvgHeart } from "../SVG/Heart";
 import { SvgFrame } from "../SVG/Frame";
@@ -14,7 +19,7 @@ export function ProjectCard() {
       <div>
         <GridContainerInner>
           {USER_DATA.map((data, idx) => (
-            <CardWrapper key={data.id}>
+            <Card key={data.id}>
               <div className='card-wrapper--inner'>
                 <div className='picture' style={{ position: "relative" }}>
                   <picture>
@@ -35,38 +40,47 @@ export function ProjectCard() {
                   </picture>
                   <StyledFrame />
                 </div>
-                <CardFooter>
-                  <UserData>
-                    <AvatarWrapper>
-                      <img
-                        src={data.avatar}
-                        alt={data.first_name}
-                        width='30'
-                        height='30'
-                        loading='lazy'
-                      />
-                    </AvatarWrapper>
-                    <div className='user-name'>
-                      <UserName>
-                        {data.first_name} {data.last_name}
-                      </UserName>
-                    </div>
-                  </UserData>
-                  <ProjectsData>
-                    <IconsWrapper>
-                      <SvgComments width='1.4rem' fill={COLORS.grayTextLight} />
-                      <ProjectCount>
-                        {PROJECTS_DATA[idx].comments_count}
-                      </ProjectCount>
-                    </IconsWrapper>
-                    <IconsWrapper>
-                      <SvgHeart width='1.4rem' fill={COLORS.grayTextLight} />
-                      <ProjectCount>{PROJECTS_DATA[idx].likes}</ProjectCount>
-                    </IconsWrapper>
-                  </ProjectsData>
-                </CardFooter>
+                <CardData>
+                  <div className='project-title'>
+                    <h3>{PROJECTS_DATA[idx].project_name}</h3>
+                  </div>
+                  <CardFooter>
+                    <UserData>
+                      <AvatarWrapper>
+                        <img
+                          src={data.avatar}
+                          alt={data.first_name}
+                          width='30'
+                          height='30'
+                          loading='lazy'
+                        />
+                      </AvatarWrapper>
+                      <div className='user-name'>
+                        <UserName>
+                          {data.first_name} {data.last_name}
+                        </UserName>
+                      </div>
+                    </UserData>
+                    <ProjectsData>
+                      <IconsWrapper>
+                        <SvgComments width='1.4rem' fill={COLORS.grayText} />
+                        <ProjectCount>
+                          {PROJECTS_DATA[idx].comments_count}
+                        </ProjectCount>
+                      </IconsWrapper>
+                      <IconsWrapper>
+                        <SvgHeart width='1.4rem' fill={COLORS.grayText} />
+                        <ProjectCount>{PROJECTS_DATA[idx].likes}</ProjectCount>
+                      </IconsWrapper>
+                    </ProjectsData>
+                  </CardFooter>
+                  <div className='project-tags'>
+                    <span>Tags: </span>
+                    <span>{PROJECTS_DATA[idx].tags}</span>
+                  </div>
+                </CardData>
               </div>
-            </CardWrapper>
+            </Card>
           ))}
         </GridContainerInner>
       </div>
@@ -122,7 +136,19 @@ const UserData = styled.div`
 const CardFooter = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+`;
+
+const CardData = styled.div`
+  padding: 0 1rem;
+
+  .project-title {
+    font-size: ${FONT_SIZES.md};
+  }
+
+  .project-tags {
+    font-size: ${FONT_SIZES.mdMin};
+    color: ${COLORS.grayTextMed};
+  }
 `;
 
 const ProjectImg = styled(UnstyledImg)`
@@ -130,7 +156,7 @@ const ProjectImg = styled(UnstyledImg)`
   object-fit: cover;
 `;
 
-const CardWrapper = styled.li`
+const Card = styled.li`
   overflow: hidden;
 `;
 
