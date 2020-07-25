@@ -24,6 +24,7 @@ export const COLORS = {
   grayDark: "#424242",
   grayLight: "#E0E0E0",
   grayTextDark: "rgba(66,66,66,0.9)",
+  grayText: "rgba(120,120,120,1)",
   grayTextMed: "rgba(156,156,156,0.8)",
   grayTextLight: "rgba(206,206,206,0.9)",
   primary: "#ffb200",
