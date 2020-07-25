@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link, withRouter } from "react-router-dom";
 import { MAIN_ROUTES, FONT_SIZES, COLORS } from "../../constants/constants";
-import { Container, UnstyledForm } from "../GlobalComponents/GlobalComponents";
+import { Container, UnstyledForm, UnstyledInputText } from "../GlobalComponents/GlobalComponents";
 import { Button } from "../Buttons/Button";
 import { useFirebaseContext } from "../Firebase";
 import { ErrorMessage } from "../../constants/interfaces";
@@ -45,7 +45,7 @@ function LoginPageComp(props: any) {
           <StyledForm onSubmit={onSubmit}>
             <FormInputWrapper>
               <label htmlFor='user-email'>Email:</label>
-              <input
+              <UnstyledInputText
                 type='text'
                 name='user-email'
                 id='user-email'
@@ -54,7 +54,7 @@ function LoginPageComp(props: any) {
             </FormInputWrapper>
             <FormInputWrapper>
               <label htmlFor='user-password'>Password:</label>
-              <input
+              <UnstyledInputText
                 type='password'
                 name='user-password'
                 id='user-password'
