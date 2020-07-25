@@ -189,3 +189,44 @@ export const Image = styled(UnstyledImg)`
   width: 100%;
   object-fit: cover;
 `;
+
+export const FormInputWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  width: clamp(25rem, 100%, 100%);
+
+  label {
+    padding-right: 1rem;
+  }
+`;
+
+export const StyledForm = styled(UnstyledForm)`
+  display: grid;
+  row-gap: 1rem;
+`;
+
+export const ErrorDiv = styled.div`
+  text-align: center;
+  font-size: 1.4rem;
+  color: indianred;
+  font-weight: bold;
+`;
+
+export const FormWrapper = styled.div`
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  font-size: ${FONT_SIZES.mdMax};
+  background-color: ${COLORS.white};
+  border: 1px solid ${COLORS.grayDark};
+  padding: 3rem;
+  border-radius: 1rem;
+`;
+
+export const InnerWrapper = styled.div`
+  width: 100%;
+  height: calc(100vh - 6rem);
+  display: grid;
+  place-items: center;
+`;

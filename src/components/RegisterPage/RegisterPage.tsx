@@ -1,8 +1,15 @@
 import React from "react";
-import styled from "styled-components";
 import { Link, withRouter } from "react-router-dom";
-import { MAIN_ROUTES, FONT_SIZES, COLORS } from "../../constants/constants";
-import { Container, UnstyledForm } from "../GlobalComponents/GlobalComponents";
+import { MAIN_ROUTES } from "../../constants/constants";
+import {
+  Container,
+  InnerWrapper,
+  FormWrapper,
+  ErrorDiv,
+  StyledForm,
+  FormInputWrapper,
+  UnstyledInputText,
+} from "../GlobalComponents/GlobalComponents";
 import { Button } from "../Buttons/Button";
 import { useFirebaseContext } from "../Firebase";
 import { ErrorMessage } from "../../constants/interfaces";
@@ -50,7 +57,7 @@ function RegisterPageComp(props: any) {
   return (
     <Container>
       <InnerWrapper>
-        <Wrapper>
+        <FormWrapper>
           <div>
             <p>REGISTER</p>
           </div>
@@ -58,7 +65,7 @@ function RegisterPageComp(props: any) {
           <StyledForm onSubmit={onSubmit}>
             <FormInputWrapper>
               <label htmlFor='user-nickname'>Username:</label>
-              <input
+              <UnstyledInputText
                 type='text'
                 name='user-nickname'
                 id='user-nickname'
@@ -68,7 +75,7 @@ function RegisterPageComp(props: any) {
             </FormInputWrapper>
             <FormInputWrapper>
               <label htmlFor='user-email'>Email:</label>
-              <input
+              <UnstyledInputText
                 type='text'
                 name='user-email'
                 id='user-email'
@@ -78,7 +85,7 @@ function RegisterPageComp(props: any) {
             </FormInputWrapper>
             <FormInputWrapper>
               <label htmlFor='user-password1'>Password:</label>
-              <input
+              <UnstyledInputText
                 type='password'
                 name='user-password1'
                 id='user-password1'
@@ -88,7 +95,7 @@ function RegisterPageComp(props: any) {
             </FormInputWrapper>
             <FormInputWrapper>
               <label htmlFor='user-password2'>Confirm password:</label>
-              <input
+              <UnstyledInputText
                 type='password'
                 name='user-password2'
                 id='user-password2'
@@ -110,47 +117,11 @@ function RegisterPageComp(props: any) {
               <Link to={MAIN_ROUTES.login}>Log in</Link>
             </p>
           </div>
-        </Wrapper>
+        </FormWrapper>
       </InnerWrapper>
     </Container>
   );
 }
-
-const FormInputWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  width: clamp(25rem, 100%, 100%);
-`;
-
-const StyledForm = styled(UnstyledForm)`
-  display: grid;
-  row-gap: 1rem;
-`;
-
-const ErrorDiv = styled.div`
-  text-align: center;
-  font-size: 1.4rem;
-  color: indianred;
-  font-weight: bold;
-`;
-
-const Wrapper = styled.div`
-  margin: 0 auto;
-  display: grid;
-  place-items: center;
-  font-size: ${FONT_SIZES.mdMax};
-  background-color: ${COLORS.grayLight};
-  padding: 3rem;
-  border-radius: 1rem;
-`;
-
-const InnerWrapper = styled.div`
-  width: 100%;
-  height: calc(100vh - 6rem);
-  display: grid;
-  place-items: center;
-`;
 
 const RegisterPage = withRouter(RegisterPageComp);
 
