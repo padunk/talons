@@ -9,7 +9,7 @@ import styled from "styled-components";
 import { CategoriesList } from "../Categories/CategoriesList";
 import { Spacer } from "../Spacer/Spacer";
 import { ProjectCard } from "../ProjectCard/ProjectCard";
-import { COLORS } from "../../constants";
+import { COLORS } from "../../constants/constants";
 import { SortFilter } from "../SortFilter/SortFilter";
 
 export function DisplayProjects() {
