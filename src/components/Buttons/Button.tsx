@@ -5,10 +5,16 @@ import { COLORS } from "../../constants/constants";
 import { GrFilter, GrSort } from "react-icons/gr";
 
 export function Button(props: any) {
-  if (props.looks === "primary") {
-    return <ButtonPrimary {...props}>{props.children}</ButtonPrimary>;
+  switch (props.looks) {
+    case "primary":
+      return <ButtonPrimary {...props}>{props.children}</ButtonPrimary>;
+    case "secondary":
+      return <ButtonSecondary {...props}>{props.children}</ButtonSecondary>;
+    case "tertiary":
+      return <ButtonTertiary {...props}>{props.children}</ButtonTertiary>;
+    default:
+      return <StyledButton {...props}>{props.children}</StyledButton>;
   }
-  return <ButtonSecondary {...props}>{props.children}</ButtonSecondary>;
 }
 
 export function FilterButton(
@@ -39,12 +45,23 @@ export function SortButton(
   );
 }
 
-const ButtonSecondary = styled(UnstyledButton)`
+export const StyledButton = styled(UnstyledButton)`
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1.2rem 1.4rem;
+`;
+
+const ButtonPrimary = styled(StyledButton)`
+  background: ${COLORS.primary};
+
+  &:hover {
+    background: ${COLORS.primaryAlpha};
+  }
+`;
+
+const ButtonSecondary = styled(StyledButton)`
   background: ${COLORS.white};
 
   &:hover {
@@ -52,14 +69,11 @@ const ButtonSecondary = styled(UnstyledButton)`
   }
 `;
 
-const ButtonPrimary = styled(UnstyledButton)`
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  padding: 1.2rem 1.4rem;
-  background: ${COLORS.primary};
+const ButtonTertiary = styled(StyledButton)`
+  background: ${COLORS.tertiary};
+  color: ${COLORS.white};
 
   &:hover {
-    background: ${COLORS.primaryAlpha};
+    background: ${COLORS.tertiaryLight};
   }
 `;
