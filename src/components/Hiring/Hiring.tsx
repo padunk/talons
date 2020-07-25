@@ -2,13 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import { GrUpload } from "react-icons/gr";
 import { IoIosSend } from "react-icons/io";
-import { BREAKPOINTS, FONT_SIZES, COLORS } from "../../constants/constants";
+import { BREAKPOINTS, FONT_SIZES } from "../../constants/constants";
 import {
-  UnstyledImg,
   SubHeader2,
   SubHeader3,
   UnstyledForm,
   NavSearch,
+  Header,
+  HeaderImage,
+  ImageWrapper,
+  Image,
+  HeaderText,
 } from "../GlobalComponents/GlobalComponents";
 import { Spacer } from "../Spacer/Spacer";
 import hire from "../../assets/icons/hire.svg";
@@ -17,13 +21,13 @@ import { Button } from "../Buttons/Button";
 export function Hiring() {
   return (
     <div>
-      <MeetupsHeader>
-        <MeetupsHeaderImage>
+      <Header>
+        <HeaderImage>
           <ImageWrapper>
             <Image src={hire} alt='blogs' loading='lazy' />
           </ImageWrapper>
-        </MeetupsHeaderImage>
-        <MeetupsHeaderText>
+        </HeaderImage>
+        <HeaderText>
           <SubHeader2>The best site to hire the best Developer</SubHeader2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -33,8 +37,8 @@ export function Hiring() {
             phasellus faucibus scelerisque eleifend donec. Et sollicitudin ac
             orci phasellus egestas tellus.
           </p>
-        </MeetupsHeaderText>
-      </MeetupsHeader>
+        </HeaderText>
+      </Header>
       <ListingContainer>
         <SubHeader3>Create Your Job Listing</SubHeader3>
         <Spacer size='2rem' />
@@ -90,59 +94,6 @@ export function Hiring() {
     </div>
   );
 }
-
-const MeetupsHeader = styled.header`
-  display: flex;
-  justify-content: space-around;
-  padding: 2rem;
-  flex-wrap: wrap;
-
-  @media ${BREAKPOINTS.md} {
-    flex-wrap: nowrap;
-    padding: 4rem;
-  }
-`;
-
-const MeetupsHeaderText = styled.div`
-  font-size: ${FONT_SIZES.md};
-  text-align: justify;
-  padding: 1rem;
-  color: ${COLORS.grayTextMed};
-
-  display: grid;
-  justify-items: start;
-  align-content: center;
-
-  @media ${BREAKPOINTS.md} {
-    flex: 1;
-    order: 0;
-  }
-`;
-
-const MeetupsHeaderImage = styled.div`
-  padding: 1rem;
-
-  @media ${BREAKPOINTS.md} {
-    flex: 1;
-    order: 1;
-  }
-`;
-
-const ImageWrapper = styled.div`
-  overflow: hidden;
-  border-radius: 1.5rem;
-
-  @media ${BREAKPOINTS.md} {
-    &.pass-meetup-image {
-      width: 30rem;
-    }
-  }
-`;
-
-const Image = styled(UnstyledImg)`
-  width: 100%;
-  object-fit: cover;
-`;
 
 const ListingContainer = styled.div`
   padding: 1rem;

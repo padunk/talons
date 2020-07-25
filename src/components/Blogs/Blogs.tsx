@@ -2,19 +2,27 @@ import React from "react";
 import styled from "styled-components";
 import typewriter from "../../assets/icons/typewriter.svg";
 import { BREAKPOINTS, FONT_SIZES, COLORS } from "../../constants/constants";
-import { UnstyledImg, SubHeader2 } from "../GlobalComponents/GlobalComponents";
+import {
+  SubHeader2,
+  SubHeader4,
+  Header,
+  HeaderImage,
+  ImageWrapper,
+  Image,
+  HeaderText,
+} from "../GlobalComponents/GlobalComponents";
 import { Spacer } from "../Spacer/Spacer";
 
 export function Blogs() {
   return (
     <div>
-      <MeetupsHeader>
-        <MeetupsHeaderImage>
+      <Header>
+        <HeaderImage>
           <ImageWrapper>
             <Image src={typewriter} alt='blogs' loading='lazy' />
           </ImageWrapper>
-        </MeetupsHeaderImage>
-        <MeetupsHeaderText>
+        </HeaderImage>
+        <HeaderText>
           <SubHeader2>Everyone can blogs</SubHeader2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -24,8 +32,8 @@ export function Blogs() {
             phasellus faucibus scelerisque eleifend donec. Et sollicitudin ac
             orci phasellus egestas tellus.
           </p>
-        </MeetupsHeaderText>
-      </MeetupsHeader>
+        </HeaderText>
+      </Header>
       <Spacer size='2rem' />
       <div>
         <PastMeetups>
@@ -109,59 +117,6 @@ export function Blogs() {
   );
 }
 
-const MeetupsHeader = styled.header`
-  display: flex;
-  justify-content: space-around;
-  padding: 2rem;
-  flex-wrap: wrap;
-
-  @media ${BREAKPOINTS.md} {
-    flex-wrap: nowrap;
-    padding: 4rem;
-  }
-`;
-
-const MeetupsHeaderText = styled.div`
-  font-size: ${FONT_SIZES.md};
-  text-align: justify;
-  padding: 1rem;
-  color: ${COLORS.grayTextMed};
-
-  display: grid;
-  justify-items: start;
-  align-content: center;
-
-  @media ${BREAKPOINTS.md} {
-    flex: 1;
-    order: 0;
-  }
-`;
-
-const MeetupsHeaderImage = styled.div`
-  padding: 1rem;
-
-  @media ${BREAKPOINTS.md} {
-    flex: 1;
-    order: 1;
-  }
-`;
-
-const ImageWrapper = styled.div`
-  overflow: hidden;
-  border-radius: 1.5rem;
-
-  @media ${BREAKPOINTS.md} {
-    &.pass-meetup-image {
-      width: 30rem;
-    }
-  }
-`;
-
-const Image = styled(UnstyledImg)`
-  width: 100%;
-  object-fit: cover;
-`;
-
 const PastMeetups = styled.div`
   padding: 1rem;
   border-bottom: 1px solid ${COLORS.grayLight};
@@ -187,10 +142,6 @@ const MeetupsText = styled.div`
     padding-left: 2rem;
     max-width: 66rem;
   }
-`;
-
-const SubHeader4 = styled.h4`
-  color: ${COLORS.grayTextDark};
 `;
 
 const Author = styled.p`

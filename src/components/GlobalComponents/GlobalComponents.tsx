@@ -1,6 +1,11 @@
 import * as React from "react";
 import styled from "styled-components";
-import { BREAKPOINTS, COLORS } from "../../constants/constants";
+import {
+  BREAKPOINTS,
+  COLORS,
+  FONT_SIZES,
+  FONTS,
+} from "../../constants/constants";
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`
@@ -59,7 +64,11 @@ export const UnstyledInputText = styled(RawInput)`
   }
 `;
 
-export const UnstyledImg = styled.img`
+export const RawImage = (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
+  <img {...props} />
+);
+
+export const UnstyledImg = styled(RawImage)`
   display: block;
 `;
 
@@ -73,7 +82,7 @@ export const UnstyledForm = (
 
 export const UnstyledButton = styled.button`
   border: none;
-  outline: none;
+  outline: ${COLORS.primaryAlphaLight};
   background: none;
 `;
 
@@ -111,4 +120,72 @@ export const NavSearch = styled(UnstyledInputText)`
   @media ${BREAKPOINTS.xxl} {
     font-size: 1.8rem;
   }
+`;
+
+export const SubHeader2 = styled.h2`
+  font-size: ${FONT_SIZES.xxl};
+  color: ${COLORS.grayTextDark};
+  font-family: ${FONTS.serif};
+`;
+
+export const SubHeader3 = styled.h3`
+  font-size: ${FONT_SIZES.xl};
+  color: ${COLORS.grayTextDark};
+`;
+
+export const SubHeader4 = styled.h4`
+  color: ${COLORS.grayTextDark};
+`;
+
+export const Header = styled.header`
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  flex-wrap: wrap;
+
+  @media ${BREAKPOINTS.md} {
+    flex-wrap: nowrap;
+    padding: 4rem;
+  }
+`;
+
+export const HeaderText = styled.div`
+  font-size: ${FONT_SIZES.md};
+  text-align: justify;
+  padding: 1rem;
+  color: ${COLORS.grayTextMed};
+
+  display: grid;
+  justify-items: start;
+  align-content: center;
+
+  @media ${BREAKPOINTS.md} {
+    flex: 1;
+    order: 0;
+  }
+`;
+
+export const HeaderImage = styled.div`
+  padding: 1rem;
+
+  @media ${BREAKPOINTS.md} {
+    flex: 1;
+    order: 1;
+  }
+`;
+
+export const ImageWrapper = styled.div`
+  overflow: hidden;
+  border-radius: 1.5rem;
+
+  @media ${BREAKPOINTS.md} {
+    &.pass-meetup-image {
+      width: 30rem;
+    }
+  }
+`;
+
+export const Image = styled(UnstyledImg)`
+  width: 100%;
+  object-fit: cover;
 `;

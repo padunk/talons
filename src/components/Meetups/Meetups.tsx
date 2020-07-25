@@ -3,13 +3,21 @@ import styled from "styled-components";
 import { FONT_SIZES, BREAKPOINTS, COLORS } from "../../constants/constants";
 import { Button } from "../Buttons/Button";
 import { Spacer } from "../Spacer/Spacer";
-import { UnstyledImg, SubHeader2 } from "../GlobalComponents/GlobalComponents";
+import {
+  SubHeader2,
+  SubHeader4,
+  Header,
+  HeaderImage,
+  ImageWrapper,
+  Image,
+  HeaderText,
+} from "../GlobalComponents/GlobalComponents";
 
 export function Meetups() {
   return (
     <div>
-      <MeetupsHeader>
-        <MeetupsHeaderImage>
+      <Header>
+        <HeaderImage>
           <ImageWrapper>
             <Image
               src='https://images.unsplash.com/photo-1523301343968-6a6ebf63c672?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80'
@@ -17,11 +25,9 @@ export function Meetups() {
               loading='lazy'
             />
           </ImageWrapper>
-        </MeetupsHeaderImage>
-        <MeetupsHeaderText>
-          <SubHeader2>
-            Join our Meetups around the world.
-          </SubHeader2>
+        </HeaderImage>
+        <HeaderText>
+          <SubHeader2>Join our Meetups around the world.</SubHeader2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue
@@ -34,8 +40,8 @@ export function Meetups() {
           <Button type='button' looks='primary'>
             Host a Meetup
           </Button>
-        </MeetupsHeaderText>
-      </MeetupsHeader>
+        </HeaderText>
+      </Header>
       <div className='past-meetups'>
         <MeetupsSubHeader>Recent meetups compilation</MeetupsSubHeader>
         <PastMeetups>
@@ -91,58 +97,6 @@ export function Meetups() {
   );
 }
 
-const MeetupsHeader = styled.header`
-  display: flex;
-  justify-content: space-around;
-  padding: 2rem;
-  flex-wrap: wrap;
-
-  @media ${BREAKPOINTS.md} {
-    flex-wrap: nowrap;
-  }
-`;
-
-const MeetupsHeaderText = styled.div`
-  font-size: ${FONT_SIZES.md};
-  text-align: justify;
-  padding: 1rem;
-  color: ${COLORS.grayTextMed};
-
-  display: grid;
-  justify-items: start;
-  align-content: center;
-
-  @media ${BREAKPOINTS.md} {
-    flex: 1;
-    order: 0;
-  }
-`;
-
-const MeetupsHeaderImage = styled.div`
-  padding: 1rem;
-
-  @media ${BREAKPOINTS.md} {
-    flex: 1;
-    order: 1;
-  }
-`;
-
-const ImageWrapper = styled.div`
-  overflow: hidden;
-  border-radius: 1.5rem;
-
-  @media ${BREAKPOINTS.md} {
-    &.pass-meetup-image {
-      width: 30rem;
-    }
-  }
-`;
-
-const Image = styled(UnstyledImg)`
-  width: 100%;
-  object-fit: cover;
-`;
-
 const PastMeetups = styled.div`
   padding: 1rem;
   border-bottom: 1px solid ${COLORS.grayLight};
@@ -166,8 +120,4 @@ const MeetupsText = styled.div`
     padding-left: 2rem;
     max-width: 66rem;
   }
-`;
-
-const SubHeader4 = styled.h4`
-  color: ${COLORS.grayTextDark};
 `;
