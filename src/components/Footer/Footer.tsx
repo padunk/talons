@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { GrTwitter, GrInstagram, GrFacebook, GrGithub } from "react-icons/gr";
+import { GrTwitter, GrLinkedin, GrFacebook, GrGithub } from "react-icons/gr";
 import {
   NAV_ROUTES,
   BREAKPOINTS,
@@ -10,6 +10,29 @@ import {
 import logo from "../../assets/icons/talons.svg";
 import { PlainLink, UnstyledImg } from "../GlobalComponents/GlobalComponents";
 import { Link } from "react-router-dom";
+
+const socialMedia = [
+  {
+    href: "https://github.com/AbrahamAnakAgung",
+    name: "github",
+    icon: <GrGithub size='2rem' />,
+  },
+  {
+    href: "https://twitter.com/anakagungcorp",
+    name: "twitter",
+    icon: <GrTwitter size='2rem' />,
+  },
+  {
+    href: "https://facebook.com/AbrahamAnakAgung",
+    name: "facebook",
+    icon: <GrFacebook size='2rem' />,
+  },
+  {
+    href: "https://linkedin.com/in/AbrahamAnakAgung",
+    name: "linkedin",
+    icon: <GrLinkedin size='2rem' />,
+  },
+];
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -27,24 +50,15 @@ export function Footer() {
             <h2>All in one site to hire the best developer in the world.</h2>
           </div>
           <SocMedWrapper>
-            <a
-              href='https://github.com/AbrahamAnakAgung'
-              target='_blank'
-              rel='noreferrer'>
-              <GrGithub size='2rem' />
-            </a>
-            <a
-              href='https://twitter.com/anakagungcorp'
-              target='_blank'
-              rel='noreferrer'>
-              <GrTwitter size='2rem' />
-            </a>
-            <a href='#' target='_blank' rel='noreferrer'>
-              <GrInstagram size='2rem' />
-            </a>
-            <a href='#' target='_blank' rel='noreferrer'>
-              <GrFacebook size='2rem' />
-            </a>
+            {socialMedia.map((socmed) => (
+              <a
+                key={socmed.name}
+                href={socmed.href}
+                target='_blank'
+                rel='noreferrer noopener'>
+                {socmed.icon}
+              </a>
+            ))}
           </SocMedWrapper>
         </div>
         <FooterLinks>
