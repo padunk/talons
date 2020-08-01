@@ -192,18 +192,30 @@ export const Image = styled(UnstyledImg)`
 
 export const FormInputWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   padding: 1rem;
   width: clamp(25rem, 100%, 100%);
 
   label {
     padding-right: 1rem;
   }
+
+  textarea {
+    resize: none;
+  }
+
+  @media ${BREAKPOINTS.md} {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem 2rem;
+  }
 `;
 
 export const StyledForm = styled(UnstyledForm)`
   display: grid;
   row-gap: 1rem;
+  width: 100%;
+  max-width: 66rem;
 `;
 
 export const ErrorDiv = styled.div`
