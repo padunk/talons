@@ -28,11 +28,11 @@ export function AddProject({}: Props): ReactElement {
           </FormInputWrapper>
           <FormInputWrapper>
             <label htmlFor='project-summary'>Summary:</label>
-            <textarea></textarea>
+            <textarea rows={7}></textarea>
           </FormInputWrapper>
           <FormInputWrapper>
             <label htmlFor='project-installation'>Installation & Usage:</label>
-            <textarea></textarea>
+            <textarea rows={7}></textarea>
           </FormInputWrapper>
           <FormInputWrapper>
             <label htmlFor='project-tech'>Technology:</label>
@@ -45,8 +45,8 @@ export function AddProject({}: Props): ReactElement {
             </select>
           </FormInputWrapper>
           <FormInputWrapper>
-            <label htmlFor='project-title'>Challenges</label>
-            <textarea></textarea>
+            <label htmlFor='project-title'>Challenges:</label>
+            <textarea rows={7}></textarea>
           </FormInputWrapper>
           <FormInputWrapper>
             <Button type='submit' looks='primary'>
