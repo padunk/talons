@@ -10,6 +10,7 @@ import { UserAccountPage } from "../components/UserAccountPage/UserAccountPage";
 import { Meetups } from "../components/Meetups/Meetups";
 import { Blogs } from "../components/Blogs/Blogs";
 import { Hiring } from "../components/Hiring/Hiring";
+import { AddProject } from "../components/AddProject/AddProject";
 
 export function Routes(props: any) {
   return (
@@ -46,6 +47,9 @@ export function Routes(props: any) {
       </Route>
       <Route path={NAV_ROUTES[4].path}>
         <Hiring />
+      </Route>
+      <Route path='/add-project'>
+        <AddProject />
       </Route>
     </Switch>
   );
